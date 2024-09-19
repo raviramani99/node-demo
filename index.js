@@ -6,6 +6,7 @@ import cors from "cors";
 import connectDB from "./config/db.js";
 import authRoutes from './routes/authRoutes.js';
 import userRoutes from './routes/userRoutes.js';
+import uploadRoutes from './routes/uploadRoutes.js';
 
 
 dotenv.config();
@@ -24,6 +25,8 @@ app.get("/", (req, res) => {
 
 app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
+app.use('/api', uploadRoutes);
+
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
